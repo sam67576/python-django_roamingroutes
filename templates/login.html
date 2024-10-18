@@ -1,0 +1,122 @@
+{% extends 'assets/main.html' %}
+
+{% block customStyle %}
+<style>
+    body {
+        font-family: 'Kanit', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('https://images.pexels.com/photos/1118866/pexels-photo-1118866.jpeg?auto=compress&cs=tinysrgb&') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 110vh;
+    }
+
+    .navbar {
+        height: 90px;
+        padding: 10px 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .container {
+        width: 500px;
+        background-color: rgba(0, 0, 0, 0.553);
+        padding: 40px;
+        border: solid white 1px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: solid white 1px;
+        background: transparent;
+        color: orange; 
+        font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        border-radius: 5px;
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: white;
+        outline: none;
+    }
+
+    .registerbtn {
+        background-color: orange;
+        color: black;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        font-family: 'Kanit', Arial, sans-serif;
+        font-size: 15px;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    .signin {
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        font-family: 'Kanit', Arial, sans-serif;
+        font-size: 40px;
+    }
+
+    hr {
+      border: 0.5px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    label {
+        color: orange;
+        font-family: 'Kanit', Arial, sans-serif;
+    }
+    
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block searchbar %}
+<!-- Do not include the search bar here -->
+{% endblock %}
+
+{% block maincontent %}
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h1>LOGIN</h1><hr>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required><br><br><br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required><br><hr>
+            <div class="d-flex justify-content-center mt-3 login_container">
+                <input class="registerbtn" type="submit" value="Login">
+            </div>
+        </form><br>
+
+        {% for message in messages %}
+            <p style="color: red;" id="messages">{{ message }}</p>
+        {% endfor %}
+
+        <div class="signin">
+            <p>Not a member? <a href="{% url 'register' %}" class="ml-2" style="color: orange;">Register</a></p>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency Booking</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-6zUHYeFME60VIuFGybx6ys9XeQ7YPFJqJglzrl9zyUuvM/1sFE9sZytZ0PRrsKk4/gDlR3SNwS+kLTNVmbz+Fg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        .package-details {
+            padding: 20px;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: #ff5733;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-text i {
+            margin-right: 10px;
+        }
+
+        .brief-info {
+            margin-top: 30px;
+        }
+
+        .customer-reviews {
+            margin-top: 30px;
+        }
+
+        .review {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .review .stars {
+            color: #ffc107;
+        }
+
+        .bkbtn {
+        background-color: transparent;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .bkbtn:hover {
+        background-color: orange;
+        color: black;
+    }
+
+        .carousel-inner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-item {
+            position: relative;
+        }
+
+        .carousel-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+        .add-review {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .add-review h4 {
+            margin-bottom: 20px;
+        }
+
+        .add-review textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .add-review button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid p-0">
+        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Cinque Terre">
+                    <div class="carousel-caption">
+                        <p>Embark on your dream journey. Book your Cinque Terre adventure today!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Forest">
+                    <div class="carousel-caption">
+                        <p>Seize the moment. Secure your spot on this unforgettable tour.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/3732494/pexels-photo-3732494.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Northern Lights">
+                    <div class="carousel-caption">
+                        <p>Don't just dream, explore. Book now for a magical experience.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Mountains">
+                    <div class="carousel-caption">
+                        <p>Your adventure awaits. Click 'Book Now' and start your journey.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container package-details">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span class="price-tag">INR 1,00,000</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6 icon-text">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+                <div>
+                    <h5>Place</h5>
+                    <p>{{ card_title }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 icon-text">
+                <i class="fas fa-calendar-alt fa-2x"></i>
+                <div>
+                    <h5>Duration</h5>
+                    <p>7 Days, 6 Nights</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6 icon-text">
+                <i class="fas fa-plane-departure fa-2x"></i>
+                <div>
+                    <h5>Start Date</h5>
+                    <p>2024-07-01</p>
+                </div>
+            </div>
+            <div class="col-md-6 icon-text">
+                <i class="fas fa-plane-arrival fa-2x"></i>
+                <div>
+                    <h5>End Date</h5>
+                    <p>2024-07-07</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6 icon-text">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+                <div>
+                    <h5>Place</h5>
+                    <p>{{ city }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'flight' %}?card_title={{ card_title }}&card_text={{ card_text }}&city={{ city }}&source=packages" class="bkbtn">Book Now</a>
+        </div>
+
+        <div class="brief-info">
+            <h3>hotel to stay</h3>
+            <p>
+                {{ card_text }}
+            </p>
+        </div>
+
+        <div class="customer-reviews">
+            <h3>Customer Reviews</h3>
+            <div class="review">
+                <div class="d-flex justify-content-between">
+                    <h5>John Doe</h5>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p>Amazing experience! The views were breathtaking and the service was top-notch. Highly recommend this package!</p>
+            </div>
+            <div class="review">
+                <div class="d-flex justify-content-between">
+                    <h5>Jane Smith</h5>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>Had a wonderful time! Everything was well organized and the itinerary was perfect. Would love to travel with them again!</p>
+            </div>
+            <div class="review">
+                <div class="d-flex justify-content-between">
+                    <h5>Michael Brown</h5>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>Beautiful place, but a bit crowded during the peak season. The tour guide was knowledgeable and friendly. Overall, a great trip!</p>
+            </div>
+            <div class="review">
+                <div class="d-flex justify-content-between">
+                    <h5>Emily Davis</h5>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <p>The itinerary was good but could use more free time to explore the villages. The scenery was stunning and the food was delicious.</p>
+            </div>
+        </div>
+
+        <div class="add-review">
+            <h4>Add Your Review</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="reviewName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="reviewName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reviewText" class="form-label">Review</label>
+                    <textarea class="form-control" id="reviewText" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+

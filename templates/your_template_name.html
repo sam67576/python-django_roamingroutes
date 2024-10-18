@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'your_style.css' %}">
+</head>
+<body>
+    <h1>Welcome to your template</h1>
+    <p>Admin URL: {{ admin_url }}</p>
+</body>
+</html>

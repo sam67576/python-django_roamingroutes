@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Trips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        p {
+            margin: 5px 0;
+            color: #555;
+        }
+        button {
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #c9302c;
+        }
+        .trip-details {
+            margin-bottom: 10px;
+        }
+        .no-trips {
+            text-align: center;
+            color: #999;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Trips</h1>
+        {% if orders %}
+            <ul>
+                {% for order in orders %}
+                    <li>
+                        <div class="trip-details">
+                            <p><strong>Passenger Name:</strong> {{ order.passenger_name }}</p>
+                            <p><strong>Passenger Age:</strong> {{ order.passenger_age }}</p>
+                            <p><strong>Phone Number:</strong> {{ order.phone_number }}</p>
+                            <p><strong>Hotel Name:</strong> {{ order.hotel_name }}</p>
+                            <p><strong>Arrival Date:</strong> {{ order.arrival_date }}</p>
+                            <p><strong>Departure Date:</strong> {{ order.departure_date }}</p>
+                            <p><strong>Rooms:</strong> {{ order.rooms }}</p>
+                            <p><strong>Adults:</strong> {{ order.adults }}</p>
+                            <p><strong>Children:</strong> {{ order.children }}</p>
+                            <p><strong>Flying From:</strong> {{ order.flying_from }}</p>
+                            <p><strong>Flying To:</strong> {{ order.flying_to }}</p>
+                            <p><strong>Airline:</strong> {{ order.airline }}</p>
+                            <p><strong>Travel Class:</strong> {{ order.travel_class }}</p>
+                            {% if order.additional_passenger_name %}
+                                <p><strong>Additional Passenger Name:</strong> {{ order.additional_passenger_name }}</p>
+                            {% endif %}
+                            {% if order.additional_passenger_age %}
+                                <p><strong>Additional Passenger Age:</strong> {{ order.additional_passenger_age }}</p>
+                            {% endif %}
+                        </div>
+                        <button>Cancel Trip</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-trips">You have no trips.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

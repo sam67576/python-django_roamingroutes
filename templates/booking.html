@@ -1,0 +1,401 @@
+{% extends 'assets/main.html' %}
+
+{% block customStyle %}
+<style>
+    body, html {
+        height: 100%;
+        margin-top: 50px;
+        font-family: 'Kanit', sans-serif;
+        background: url('https://images.pexels.com/photos/2131623/pexels-photo-2131623.jpeg?auto=compress&cs=tinysrgb&') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .main h1 {
+        color: blue;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        padding: 20px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .card-text {
+        font-size: small;
+    }
+
+    .card {
+        width: 22rem;
+        height: 30rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: orange;
+    }
+
+    .card-text {
+        font-size: 16px;
+        color: orange;
+    }
+
+    .bkbtn {
+        background-color: transparent;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .bkbtn:hover {
+        background-color: orange;
+        color: black;
+    }
+
+    hr {
+        color: black;
+        font-weight: bold;
+    }
+
+    .carousel-inner img {
+        height: 230px;
+        object-fit: cover;
+    }
+</style>
+{% endblock %}
+
+{% block maincontent %}
+<body>
+    <!-- Cards start -->
+    <center>
+        <h1 id="packages" style="color: rgb(55, 23, 14);">-- Other Country Packages --</h1><br>
+        <div class="container">
+            <div class="row">
+                <!-- First Row -->
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade1" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Thailand">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Thailand">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/3732494/pexels-photo-3732494.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Thailand">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade1" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade1" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Discover Thailand</h5>
+                            <hr>
+                            <p class="card-text">Experience the Land of Smiles with our exclusive Thailand packages. Enjoy the vibrant culture, stunning beaches, and delicious cuisine.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Discover Thailand&card_text=Mandarin Oriental, Bangkok&city=Bangkok&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade2" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/1796716/pexels-photo-1796716.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Paris">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg" class="d-block w-100" alt="Paris">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg" class="d-block w-100" alt="Paris">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Romantic Paris</h5>
+                            <hr>
+                            <p class="card-text">Fall in love with the City of Lights. Explore iconic landmarks, charming cafes, and world-class art in Paris with our tailored packages.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Romantic Paris&card_text=Hotel Hassler Roma&city=Paris&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade3" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/356844/pexels-photo-356844.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="New York">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/1737957/pexels-photo-1737957.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="New York">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/3680131/pexels-photo-3680131.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="New York">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade3" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade3" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Explore New York</h5>
+                            <hr>
+                            <p class="card-text">Experience the energy of the Big Apple. From Broadway shows to iconic landmarks, our New York packages offer the best of the city that never sleeps.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=New York&card_text=The Plaza Hotel&city=New York&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade4" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Italy">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/417344/pexels-photo-417344.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Italy">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/7973623/pexels-photo-7973623.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Italy">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade4" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade4" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Charming Italy</h5>
+                            <hr>
+                            <p class="card-text">Immerse yourself in the rich history, art, and cuisine of Italy. Visit Rome, Venice, and Florence with our exclusive packages.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Italy&card_text=Hotel Hassler Roma&city=Rome&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade5" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/68704/pexels-photo-68704.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Australia">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/5840729/pexels-photo-5840729.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Australia">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/20540478/pexels-photo-20540478/free-photo-of-rainbow-illuminated-sydney-harbor-bridge-at-night-in-australia.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Australia">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade5" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade5" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Adventurous Australia</h5>
+                            <hr>
+                            <p class="card-text">Discover the land Down Under with our Australian packages. Explore the Great Barrier Reef, Sydney Opera House, and more.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Adventurous Australia&card_text=Park Hyatt Sydney&city=Sydney&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade6" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/1822605/pexels-photo-1822605.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Japan">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/1673978/pexels-photo-1673978.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Japan">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/2338113/pexels-photo-2338113.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Japan">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade6" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade6" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Enchanting Japan</h5>
+                            <hr>
+                            <p class="card-text">Experience the blend of tradition and modernity in Japan. Visit Tokyo with our comprehensive packages.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Enchanting Japan&card_text=Park Hyatt Tokyo&city=Tokyo&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade7" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/2916828/pexels-photo-2916828.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Canada">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/1868676/pexels-photo-1868676.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Canada">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Canada">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade7" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade7" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Majestic Canada</h5>
+                            <hr>
+                            <p class="card-text">Explore the vast wilderness and vibrant cities of Canada. Visit Toronto, Vancouver, and the Rocky Mountains with our packages.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Majestic Canada&card_text=The Fairmont Royal York&city=Toronto&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade8" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/1191548/pexels-photo-1191548.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Brazil">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/1203565/pexels-photo-1203565.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Brazil">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/8828319/pexels-photo-8828319.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="Brazil">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade8" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade8" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Vibrant Brazil</h5>
+                            <hr>
+                            <p class="card-text">Experience the rhythm of Brazil. From Rio's carnival to the Amazon rainforest, our packages cover the best of Brazil.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Vibrant Brazil&card_text=Belmond Copacabana Palace&city=Rio de Janeiro&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm p-9 mb-5 bg-white rounded">
+                        <div id="carouselExampleFade9" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.pexels.com/photos/1518761/pexels-photo-1518761.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="South Africa">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/259447/pexels-photo-259447.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="South Africa">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.pexels.com/photos/667200/pexels-photo-667200.jpeg?auto=compress&cs=tinysrgb&" class="d-block w-100" alt="South Africa">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade9" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade9" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Wild South Africa</h5>
+                            <hr>
+                            <p class="card-text">Embark on a safari adventure and discover the diverse landscapes of South Africa. Visit Cape Town, Kruger National Park, and more.</p>
+                            <hr>
+                            <a href="{% url 'flight' %}?card_title=Wild South Africa&card_text=The Michelangelo Hotel&city=Johannesburg&source=book" class="bkbtn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </center>
+</body>
+{% endblock %}

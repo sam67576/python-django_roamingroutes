@@ -1,0 +1,113 @@
+{% extends 'assets/main.html' %}
+
+
+{% block customStyle%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Roming Routes</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url(https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&) no-repeat center center fixed;
+        background-size: cover;
+        padding-top: 90px;
+        color: black;
+    }
+    .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        font-size: 46px;
+        font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: orange;
+    }
+    .content {
+        background-color: rgba(0, 0, 0, 0.519);
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    .content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/path/to/your/image.jpg') no-repeat center center/cover;
+        opacity: 0.1;
+        z-index: -1;
+    }
+    .content h2 {
+        font-size: 28px;
+        color: white;
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: orange;
+        font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .images {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .images img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block maincontent %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>OUR STORY </h1>
+        </div>
+        <div class="content">
+            <h2>Welcome to Roming Routes!</h2><hr><br>
+            <p>Welcome to our travel world! We are passionate about exploring the globe and helping you create unforgettable travel experiences. Whether you're dreaming of serene landscapes, bustling cities, or exotic adventures, we're here to turn those dreams into reality.</p>
+            <p>At our core, we believe that travel is more than just visiting new places; it's about connecting with cultures, discovering hidden gems, and making memories that last a lifetime. With our expertise and dedication, we strive to make every journey as seamless and enriching as possible.</p>
+            <p>From booking flights and accommodations to crafting personalized itineraries, our team is committed to providing you with exceptional service every step of the way. Let us be your guide as you embark on your next great adventure!</p>
+            <p>
+                Roming Routes was founded by travel enthusiast Alex Johnson, who, from a young age, was fascinated by the beauty and diversity of the world. At 19, Alex decided to dedicate his life to exploring new destinations and sharing these experiences with others. Traveling the globe, he gathered extensive knowledge about different cultures, cuisines, and landscapes.
+            </p>
+            <p>
+                With a background in tourism management and a passion for adventure, Alex felt compelled to answer the call of wanderlust that many feel but few follow. With a modest sum of $32,000 saved from various travel gigs and personal savings, Alex opened Roming Routes, a travel agency dedicated to providing personalized and unforgettable travel experiences.
+            </p>
+            <p>
+                Located in the heart of the city, Roming Routes is your gateway to the world's most breathtaking destinations. We pride ourselves on our expert knowledge, personalized service, and commitment to making your travel dreams a reality.
+            </p>
+            <div class="images">
+                <img src="https://images.pexels.com/photos/3369777/pexels-photo-3369777.jpeg?auto=compress&cs=tinysrgb&" alt="Travel Image 1">
+                <img src="https://images.pexels.com/photos/567459/pexels-photo-567459.jpeg?auto=compress&cs=tinysrgb&" alt="Travel Image 2">
+                <img src="https://images.pexels.com/photos/2526396/pexels-photo-2526396.jpeg?auto=compress&cs=tinysrgb&" alt="Travel Image 3">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

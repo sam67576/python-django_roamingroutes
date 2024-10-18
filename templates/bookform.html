@@ -1,0 +1,330 @@
+{% block customStyle %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BOOKING</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-image: url(https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg?auto=compress&cs=tinysrgb&);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-center {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .booking-cta {
+            margin-bottom: 30px;
+        }
+
+        .booking-cta h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            color: orange;
+            font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .booking-cta p {
+            font-size: 20px;
+            color: black;
+        }
+
+        .booking-form {
+            background: rgba(0, 0, 0, 0.553);
+            padding: 40px 40px;
+            border-radius: 5px;
+            border: solid white 1px;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: none;
+            height: 40px;
+            color: orange;
+            font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .form-group .form-label {
+            color: white;
+            font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+        }
+
+        .form-checkbox input[type="radio"] {
+            display: none;
+        }
+
+        .form-checkbox input[type="radio"]:checked+span {
+            background-color: #ff9800;
+            border-color: #ff9800;
+        }
+
+        .form-checkbox span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            vertical-align: middle;
+        }
+
+        .form-checkbox label {
+            margin-right: 20px;
+            color: white;
+            font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .form-btn .submit-btn {
+            background-color: #ff9800;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .form-btn .submit-btn:hover {
+            background-color: #e68900;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 50px 0;
+            }
+
+            .booking-cta h1 {
+                font-size: 36px;
+            }
+
+            .booking-cta p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var form_num = 0;
+        $(document).ready(function() {
+            $("a.add-passenger").click(function(event) {
+                event.preventDefault(); // Prevent default action of the link
+                form_num++;
+                $(".passenger-info").append(
+                    '<div class="row">' +
+                        '<div class="col-md-6">' +
+                            '<div class="form-group">' +
+                                '<span class="form-label">Passenger Name</span>' +
+                                '<input class="form-control" type="text" name="form-' + form_num + '-first_name" placeholder="Passenger Name">' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                            '<div class="form-group">' +
+                                '<span class="form-label">Passenger Age</span>' +
+                                '<input class="form-control" type="number" name="form-' + form_num + '-age" placeholder="Passenger Age">' +
+                            '</div>' +
+                        '</div>' +
+                    '</div><br><br>'
+                );
+                $('input[name="additional_passengers_count"]').val(form_num);
+            });
+        });
+    </script>
+</head>
+{% endblock %}
+
+{% block maincontent %}
+<body>
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="booking-cta">
+                            <h1>Book your flight today</h1>
+                            <hr>
+                            <p style=" font-weight: bold; color: white;">Find the best deals on flights and start your journey with ease. Choose from multiple destinations and travel classes to suit your needs.</p>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-md-offset-1">
+                        <div class="booking-form">
+                            <form action="{% url 'final' %}" method="POST">
+                                {% csrf_token %}
+                                <h1 style="color: orange; text-align: center; font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bolder; font-size: 40px;">BOOKING</h1>
+                                <hr><br>
+                                <h4 style="color: white; font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">--------- User Information ---------</h4><br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Passenger Name</span>
+                                            <input class="form-control" type="text" name="passenger_name" placeholder="Passenger Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Passenger Age</span>
+                                            <input class="form-control" type="number" name="passenger_age" placeholder="Passenger Age" required>
+                                        </div>
+                                    </div>
+                                </div><br><br>
+                                <div class="passenger-info">
+                                    <!-- New passenger fields will be appended here -->
+                                </div>
+                                <a href="#" class="add-passenger" style="color: #e68900;font-weight: bold;">Add new passenger</a><br><br>
+                                <input type="hidden" name="additional_passengers_count" value="0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Phone no.</span>
+                                            <input class="form-control" type="text" name="phone_number" placeholder="Phone no." required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 style="color: white; font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">--------- Hotel Information ---------</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span class="form-label">Hotel Name</span>
+                                            <input class="form-control" type="text" name="hotel_name" placeholder="Hotel Name" value="{{ card_text }}" readonly>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Arrival Date</span>
+                                            <input class="form-control" type="date" name="arrival_date" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Departure Date</span>
+                                            <input class="form-control" type="date" name="departure_date" required>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Rooms</span>
+                                            <select class="form-control" name="rooms" required>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Adults (18+)</span>
+                                            <select class="form-control" name="adults" required>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Children (0-17)</span>
+                                            <select class="form-control" name="children" required>
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <span class="select-arrow"></span><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <h4 style="color: white; font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">--------- Flight Information ---------</h4><br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flying from</span>
+                                            <input class="form-control" type="text" name="flying_from" placeholder="City or airport" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flying to</span>
+                                            <input class="form-control" type="text" name="flying_to" placeholder="City or airport" value="{{ city }}" readonly>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">AirLines</span>
+                                            <select class="form-control" name="airline" required>
+                                                <option></option>
+                                                <option>Vistara</option>
+                                                <option>Indigo</option>
+                                                <option>Air India</option>
+                                                <option>SpiceJet</option>
+                                                <option>AirAsia</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Travel class</span>
+                                            <select class="form-control" name="travel_class" required>
+                                                <option>Economy class</option>
+                                                <option>Business class</option>
+                                                <option>First class</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr><br>
+                                <div class="form-btn" style="text-align: center;">
+                                    <button class="submit-btn" >Confirm Booking</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

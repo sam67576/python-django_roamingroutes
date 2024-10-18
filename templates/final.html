@@ -1,0 +1,37 @@
+{% extends 'assets/main.html' %}
+
+{% block customStyle%}
+    
+<style>
+    /* CSS styles */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .center-div {
+        text-align: center;
+    }
+
+    .center-div p {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+    }
+</style>
+
+{% endblock %}
+
+{% block maincontent %}
+<div class="center-div" >
+
+    <p>{{ message }}</p>
+
+</div>
+
+{% endblock %}

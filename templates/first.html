@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            width: 100%;
+            height: 100%;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the entire screen */
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Disable scrolling
+            document.body.style.overflow = 'hidden';
+
+            // Prevent user interactions
+            document.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            document.addEventListener('keydown', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+
+            var video = document.querySelector('video');
+
+            // When the video ends
+            video.addEventListener('ended', function() {
+                // Wait for an additional 2 seconds before redirecting
+                setTimeout(function() {
+                    window.location.href = "{% url 'home' %}";
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <video src="/static/first.mp4" autoplay muted></video>
+</body>
+</html>
